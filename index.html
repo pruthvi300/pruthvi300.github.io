@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pruthviraj Kakade — Software Engineer</title>
+  <meta name="description" content="Pruthviraj Kakade is a software engineer in Pune, India with 4.5+ years building scalable full stack applications with Python (FastAPI, Flask), Vue.js and React." />
+  <meta property="og:title" content="Pruthviraj Kakade — Software Engineer" />
+  <meta property="og:description" content="Full stack engineer with a strong Python backend focus: async APIs, background jobs, caching, data-heavy UIs." />
+  <meta property="og:image" content="https://pruthvi300.github.io/assets/og.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="https://pruthvi300.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Pruthviraj Kakade", "jobTitle": "Software Engineer",
+   "url": "https://pruthvi300.github.io/", "email": "mailto:pruthvi3.pk@gmail.com",
+   "address": {"@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN"},
+   "sameAs": ["https://github.com/pruthvi300", "https://www.linkedin.com/in/pruthviraj-kakade-631742169"],
+   "knowsAbout": ["Python", "FastAPI", "Flask", "Distributed Systems", "Vue.js", "React", "PostgreSQL", "Redis", "AWS"]}
+  </script>
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-2: #0f1a2e;
+      --card: #111c31;
+      --card-2: #15223b;
+      --line: #1e2d4a;
+      --text: #e6edf7;
+      --muted: #94a3b8;
+      --dim: #64748b;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --ok: #34d399;
+      --radius: 16px;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(800px 500px at 85% -10%, rgba(56,189,248,.12), transparent 60%),
+        radial-gradient(700px 500px at -10% 30%, rgba(129,140,248,.10), transparent 60%),
+        radial-gradient(circle at 1px 1px, rgba(148,163,184,.07) 1px, transparent 0) 0 0 / 32px 32px;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .eyebrow { font-family: var(--mono); color: var(--accent); font-size: 14px; letter-spacing: .02em; }
+    h2 { font-size: clamp(28px, 4vw, 38px); font-weight: 800; letter-spacing: -.02em; margin: 8px 0 16px; }
+    .lead { color: var(--muted); font-size: 18px; max-width: 680px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid rgba(30,45,74,.6);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: var(--mono); font-weight: 500; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 88px 0 72px; }
+    .hero .wrap:first-child { display: grid; grid-template-columns: 1.4fr .8fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(40px, 6.4vw, 68px); line-height: 1.05; font-weight: 800; letter-spacing: -.035em; margin: 14px 0 10px; }
+    .hero h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); font-weight: 500; margin-bottom: 22px; }
+    .hero p.lead { margin-bottom: 30px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); border: 1px solid var(--line); background: rgba(17,28,49,.7); padding: 6px 14px; border-radius: 999px; }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(52,211,153,.18); }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 12px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); background: var(--card); transition: transform .15s, border-color .15s, background .15s; }
+    .btn:hover { transform: translateY(-2px); border-color: #2c4370; }
+    .btn.primary { background: linear-gradient(135deg, #0ea5e9, #6366f1); border-color: transparent; color: white; }
+    .btn svg { width: 18px; height: 18px; }
+    .photo { position: relative; justify-self: center; }
+    .photo img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); box-shadow: 0 0 0 3px var(--accent), 0 30px 80px rgba(56,189,248,.25); }
+    .photo .badge { position: absolute; bottom: 18px; right: -8px; background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; font-size: 13px; color: var(--muted); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    .photo .badge b { display: block; font-size: 22px; color: var(--text); line-height: 1.1; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 64px; }
+    .stat { background: rgba(17,28,49,.7); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+    .stat b { display: block; font-size: 30px; font-weight: 800; letter-spacing: -.02em; background: linear-gradient(90deg, var(--text), #b6c3d8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stat span { color: var(--muted); font-size: 14px; }
+
+    /* About + experience */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px; }
+    .about-grid p { color: var(--muted); margin-bottom: 16px; font-size: 16.5px; }
+    .about-grid p strong { color: var(--text); font-weight: 600; }
+    .timeline { border-left: 2px solid var(--line); padding-left: 28px; display: grid; gap: 28px; }
+    .job { position: relative; }
+    .job::before { content: ""; position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+    .job .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+    .job h3 { font-size: 18px; margin: 4px 0 2px; }
+    .job .where { color: var(--muted); font-size: 14.5px; margin-bottom: 10px; }
+    .job ul { list-style: none; display: grid; gap: 6px; }
+    .job li { color: var(--muted); font-size: 15px; padding-left: 18px; position: relative; }
+    .job li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+    .job li b { color: var(--text); font-weight: 600; }
+
+    .strengths { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start; }
+    .strength { display: flex; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+    .strength > span { font-size: 22px; line-height: 1.2; }
+    .strength h3 { font-size: 15.5px; margin-bottom: 4px; }
+    .strength p { color: var(--muted); font-size: 14px; margin: 0; line-height: 1.55; }
+    #experience .timeline { margin-top: 36px; }
+    #experience .job ul { grid-template-columns: 1fr 1fr; column-gap: 32px; }
+    #experience .job:first-child ul { grid-template-columns: 1fr; }
+    .job .co { color: var(--accent); }
+    .job .where b { color: var(--text); font-weight: 600; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+    .skill { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+    .skill h3 { font-size: 15px; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: 13px; padding: 5px 11px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); color: #cbd5e1; }
+
+    /* Projects */
+    .projects { display: grid; gap: 28px; margin-top: 36px; }
+    .project { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: border-color .2s; }
+    .project:hover { border-color: #2c4370; }
+    .project:nth-child(even) { grid-template-columns: 1fr 1.15fr; }
+    .project:nth-child(even) .shots { order: 2; }
+    .shots { position: relative; background: #0a101c; border-right: 1px solid var(--line); min-height: 280px; }
+    .project:nth-child(even) .shots { border-right: 0; border-left: 1px solid var(--line); }
+    .shots img { width: 100%; height: 100%; object-fit: contain; object-position: top center; position: absolute; inset: 0; opacity: 0; transition: opacity .35s; }
+    .shots img.on { opacity: 1; }
+    .shot-tabs { position: absolute; left: 14px; bottom: 14px; display: flex; gap: 6px; z-index: 2; }
+    .shot-tabs button { font: 500 12px Inter, sans-serif; color: #cbd5e1; background: rgba(11,18,32,.85); border: 1px solid var(--line); padding: 5px 10px; border-radius: 8px; cursor: pointer; backdrop-filter: blur(6px); }
+    .shot-tabs button.on { color: white; border-color: var(--accent); }
+    .code-shot { position: absolute; inset: 0; padding: 26px; white-space: pre; font-family: var(--mono); font-size: 13px; line-height: 1.75; color: #cbd5e1; overflow: hidden; }
+    .code-shot .c { color: var(--dim); } .code-shot .k { color: #c084fc; } .code-shot .s { color: #86efac; } .code-shot .n { color: #fbbf24; } .code-shot .a { color: var(--accent); }
+    .info { padding: 30px 32px; display: flex; flex-direction: column; }
+    .info .tag { font-family: var(--mono); font-size: 12.5px; color: var(--accent); }
+    .info h3 { font-size: 24px; font-weight: 700; letter-spacing: -.01em; margin: 4px 0 10px; }
+    .info p { color: var(--muted); font-size: 15.5px; margin-bottom: 14px; }
+    .info ul { list-style: none; display: grid; gap: 7px; margin-bottom: 18px; }
+    .info li { font-size: 14.5px; color: #cbd5e1; padding-left: 20px; position: relative; }
+    .info li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+    .info .chips { margin-bottom: 22px; }
+    .info .links { margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; }
+    .info .links .btn { padding: 9px 15px; font-size: 14px; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .lead { margin: 0 auto 32px; }
+    .contact .btns { justify-content: center; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .foot-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .foot-links a:hover { color: var(--text); }
+    .copy-btn { cursor: pointer; font-family: inherit; color: var(--text); }
+    .copy-btn.done { border-color: var(--ok); color: var(--ok); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+    @media (max-width: 960px) {
+      .hero .wrap:first-child, .about-grid, .project, .project:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
+      .code-shot { font-size: 11.5px; padding: 18px; }
+      .project:nth-child(even) .shots { order: 0; border-left: 0; }
+      .shots, .project:nth-child(even) .shots { border-right: 0; border-bottom: 1px solid var(--line); min-height: 240px; aspect-ratio: 16 / 10; }
+      .photo { order: -1; }
+      .photo img { width: 200px; height: 200px; }
+      .stats, .skills { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      section { padding: 72px 0; }
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 24px; border-top: 1px solid var(--line); }
+      .menu-btn { display: block; }
+      .skills, .strengths, #experience .job ul { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .stat { padding: 16px; }
+      .stat b { font-size: 24px; }
+      .photo { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .photo img { width: 168px; height: 168px; }
+      .photo .badge { position: static; display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 12px; border-radius: 999px; font-size: 12px; box-shadow: none; }
+      .photo .badge b { display: inline; font-size: 14px; }
+      .projects { gap: 40px; }
+      .project { border-color: #26385c; box-shadow: 0 12px 36px rgba(0,0,0,.4); }
+      .shots, .project:nth-child(even) .shots { background: #070c16; }
+      .info { background: linear-gradient(180deg, var(--card-2), var(--card)); }
+      .info { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="#top" class="logo">&lt;pruthviraj<span>/</span>&gt;</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.querySelector('.nav-links').classList.toggle('open'))">☰</button>
+      <div class="nav-links" onclick="this.classList.remove('open')">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="status"><i></i> Software Developer at Apptware · Pune, India</span>
+        <h1>Hi, I'm <span class="grad">Pruthviraj Kakade</span></h1>
+        <p class="role">Software Engineer · Full Stack · Python</p>
+        <p class="lead">I build scalable web applications with a strong backend focus in <strong>Python (FastAPI, Flask)</strong> and frontends in <strong>Vue.js and React</strong>. I like making slow things fast, and making systems that keep working when parts of them fail.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">View my work</a>
+          <a class="btn" href="https://github.com/pruthvi300" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://linkedin.com/in/pruthviraj-kakade-631742169" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="assets/photo.webp" alt="Pruthviraj Kakade" width="300" height="300" />
+        <div class="badge"><b>4.5+ yrs</b>building for production</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal"><b>80%</b><span>faster calculation engine on 1M+ records</span></div>
+        <div class="stat reveal"><b>10M+</b><span>rows behind sub-second dashboards</span></div>
+        <div class="stat reveal"><b>20%</b><span>lower cloud costs after a backend redesign</span></div>
+        <div class="stat reveal"><b>50s → 5s</b><span>cold start after multi-level caching</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <span class="eyebrow">01 · about</span>
+      <h2>Backend depth, full stack range</h2>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>I'm a software engineer based in <strong>Pune, India</strong> with <strong>4.5+ years</strong> of experience building and running enterprise SaaS: a sales performance management platform used by pharma and FMCG companies, and now forecasting and pipeline features for a US enterprise AI revenue platform.</p>
+          <p>Most of my work sits on the backend: <strong>async APIs, background job systems, caching and database performance</strong>. I'm equally comfortable shipping the <strong>Vue 3 and React</strong> interfaces on top, especially ones that have to stay fast with tens of thousands of rows.</p>
+          <p>I've also integrated <strong>LLMs and RAG</strong> into production features, and I enjoy the parts of the job outside the editor: working with clients on requirements, owning production issues, and mentoring junior developers.</p>
+        </div>
+        <div class="strengths reveal">
+          <div class="strength"><span>⚡</span><div><h3>Performance</h3><p>Profiling and fixing the slow path: vectorized calculations, OLAP for analytics, multi-level caching.</p></div></div>
+          <div class="strength"><span>🛡️</span><div><h3>Reliability &amp; security</h3><p>Queues, retries and isolation for workloads; SAML SSO, OAuth2, JWT and RBAC for enterprise clients.</p></div></div>
+          <div class="strength"><span>🧩</span><div><h3>End-to-end ownership</h3><p>From API contract and data model to the UI, tests, CI and the production fix when something breaks.</p></div></div>
+          <div class="strength"><span>🤝</span><div><h3>Working with people</h3><p>Requirement calls with US and enterprise stakeholders, code reviews, and mentoring.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <span class="eyebrow">02 · experience</span>
+      <h2>Where I've worked</h2>
+      <div class="timeline reveal">
+        <div class="job">
+          <span class="when">Apr 2026 — Present</span>
+          <h3>Software Developer · <span class="co">Apptware</span></h3>
+          <p class="where">Client: enterprise AI revenue platform for B2B sales and RevOps teams (US)</p>
+          <ul>
+            <li>Develop product features across the platform: data-rich views for <b>forecasting, pipeline and deal insights</b> used by enterprise sales teams</li>
+            <li>Integrate REST APIs with backend services, working with backend engineers on API contracts and end-to-end delivery</li>
+            <li>Improve performance and usability of data-heavy screens with large forecast and pipeline datasets</li>
+            <li>Work with US-based client stakeholders in an Agile team: requirements, code reviews and production issues</li>
+          </ul>
+        </div>
+        <div class="job">
+          <span class="when">Mar 2022 — Apr 2026 · 4 years</span>
+          <h3>Solutions Developer · <span class="co">Incentius / Aurochs Software</span></h3>
+          <p class="where">Core developer on <b>Incentivate</b>, an enterprise Sales Performance Management (SPM) platform for pharma and FMCG clients. Moved to sister company Aurochs Software in Jul 2025 in the same role.</p>
+          <ul>
+            <li>Rewrote the legacy calculation engine with Python and Pandas vectorization: <b>1M+ transactions in under 3 minutes instead of 15</b> (80% faster)</li>
+            <li>Architected a hybrid <b>MySQL (OLTP) + ClickHouse (OLAP)</b> setup for sub-second real-time sales dashboards over 10M+ records</li>
+            <li>Led the move from a monolith to a separate <b>queue worker service</b> with per-country isolation, enabling targeted autoscaling and cutting <b>cloud costs by 20%</b></li>
+            <li>Added multi-level caching for 5,000+ YAML configuration files, bringing <b>cold start from 50 s to under 5 s</b></li>
+            <li>Integrated <b>SAML SSO (Okta, Azure AD) and RBAC</b> to meet data-privacy requirements for 10+ pharma clients</li>
+            <li>Built an <b>AI-powered SQL analytics</b> feature with LangChain and OpenAI so non-technical users can query sales data in plain English</li>
+            <li>Built a Python CLI that automates tenant-specific environment setup across 10+ clients, removing a class of configuration bugs</li>
+            <li>Built Vue 3 interfaces including a recursive <b>rule builder</b> and virtualized grids for <b>50,000+ rows</b>; mentored 2 junior developers</li>
+          </ul>
+        </div>
+        <div class="job">
+          <span class="when">2018 — 2022</span>
+          <h3>B.E. Computer Science &amp; Engineering</h3>
+          <p class="where">Ajeenkya D.Y. Patil School of Engineering and Technology, Pune</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <span class="eyebrow">03 · skills</span>
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div class="skill reveal"><h3>⚙️ Backend</h3><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Celery</span><span class="chip">SQLAlchemy</span><span class="chip">Pydantic</span><span class="chip">REST</span><span class="chip">WebSockets</span></div></div>
+        <div class="skill reveal"><h3>🗄️ Data</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">ClickHouse</span><span class="chip">Redis</span><span class="chip">SQLite</span><span class="chip">Pandas</span></div></div>
+        <div class="skill reveal"><h3>🎨 Frontend</h3><div class="chips"><span class="chip">Vue 3</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Quasar</span><span class="chip">Pinia</span><span class="chip">Chart.js</span></div></div>
+        <div class="skill reveal"><h3>☁️ Cloud &amp; DevOps</h3><div class="chips"><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Terraform</span><span class="chip">GitHub Actions</span><span class="chip">Nginx</span><span class="chip">Linux</span></div></div>
+        <div class="skill reveal"><h3>🤖 AI / LLM</h3><div class="chips"><span class="chip">LangChain</span><span class="chip">RAG</span><span class="chip">ChromaDB</span><span class="chip">OpenAI API</span><span class="chip">Ollama</span><span class="chip">Embeddings</span></div></div>
+        <div class="skill reveal"><h3>🔐 Security</h3><div class="chips"><span class="chip">SAML SSO</span><span class="chip">OAuth2</span><span class="chip">JWT</span><span class="chip">RBAC</span><span class="chip">Okta</span><span class="chip">Azure AD</span></div></div>
+        <div class="skill reveal"><h3>🧪 Quality</h3><div class="chips"><span class="chip">Pytest</span><span class="chip">Unit &amp; integration tests</span><span class="chip">TDD</span><span class="chip">CI/CD</span><span class="chip">Code review</span></div></div>
+        <div class="skill reveal"><h3>🏗️ Architecture</h3><div class="chips"><span class="chip">Distributed systems</span><span class="chip">Microservices</span><span class="chip">Async workflows</span><span class="chip">Caching</span><span class="chip">Agile / Scrum</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <span class="eyebrow">04 · projects</span>
+      <h2>Things I've built</h2>
+      <p class="lead">Personal projects built the way I'd build them at work: tested, containerised, documented, and runnable from the README in minutes.</p>
+      <div class="projects">
+
+        <article class="project reveal">
+          <div class="shots">
+            <img class="on" src="assets/projects/pulse-dashboard.webp" alt="Pulse dashboard showing job counts by status" loading="lazy" />
+            <img src="assets/projects/pulse-deadletter.webp" alt="Pulse dead-letter jobs with retry buttons" loading="lazy" />
+            <div class="shot-tabs"><button class="on">Dashboard</button><button>Dead letters</button></div>
+          </div>
+          <div class="info">
+            <span class="tag">distributed systems</span>
+            <h3>Pulse: async job processing</h3>
+            <p>A background job platform: clients submit jobs over a REST API, and Celery workers run them with retries, idempotency and a dead-letter queue. Every state change is recorded in PostgreSQL and shown on a live dashboard.</p>
+            <ul>
+              <li>Exponential backoff with jitter, transient vs permanent errors</li>
+              <li>Idempotency keys stop duplicate jobs under concurrency</li>
+              <li>Load-tested with 5,000 jobs: 0 lost, 0 duplicated</li>
+              <li>Kubernetes manifests with autoscaling, Terraform for AWS</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">Celery</span><span class="chip">Redis</span><span class="chip">PostgreSQL</span><span class="chip">React</span><span class="chip">K8s</span><span class="chip">Terraform</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/pulse-jobs" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
+            <img class="on" src="assets/projects/teamsync-board.webp" alt="TeamSync Kanban board" loading="lazy" />
+            <img src="assets/projects/teamsync-task.webp" alt="TeamSync task details with comments" loading="lazy" />
+            <div class="shot-tabs"><button class="on">Board</button><button>Task details</button></div>
+          </div>
+          <div class="info">
+            <span class="tag">real-time full stack</span>
+            <h3>TeamSync: collaborative Kanban</h3>
+            <p>Kanban boards where every member sees changes live. Drag a card and it moves for everyone on the board, with optimistic updates so the UI never waits for the server.</p>
+            <ul>
+              <li>Socket.IO rooms per board, authenticated connections</li>
+              <li>JWT auth and membership checks on every endpoint</li>
+              <li>WIP limits, priorities, labels, assignees and comments</li>
+            </ul>
+            <div class="chips"><span class="chip">React 18</span><span class="chip">Zustand</span><span class="chip">FastAPI</span><span class="chip">Socket.IO</span><span class="chip">PostgreSQL</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/teamsync" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
+            <div class="code-shot">
+<span class="c"># Ask a question about your documents</span>
+<span class="k">POST</span> <span class="a">/api/chat/stream</span>
+{ <span class="s">"question"</span>: <span class="s">"What is the refund window?"</span> }
+
+<span class="c"># Streamed answer with citations</span>
+data: Refunds are accepted within <span class="n">30</span> days
+data: of delivery <span class="a">[1]</span>, or <span class="n">14</span> days for
+data: digital goods <span class="a">[2]</span>.
+
+<span class="a">[1]</span> policy.pdf · page <span class="n">4</span>
+<span class="a">[2]</span> faq.md
+
+<span class="c"># retrieve → augment → generate</span>
+<span class="k">chunks</span> = vector_store.search(q, k=<span class="n">5</span>)
+<span class="k">answer</span> = llm.stream(prompt(chunks, q))
+            </div>
+          </div>
+          <div class="info">
+            <span class="tag">AI · RAG</span>
+            <h3>DocuMind: chat with your documents</h3>
+            <p>Upload PDFs, Word files or notes and ask questions in plain English. Answers stream in token by token, with numbered citations back to the source pages.</p>
+            <ul>
+              <li>RAG pipeline with LangChain and ChromaDB</li>
+              <li>Runs on OpenAI or fully local with Ollama, switchable by config</li>
+              <li>Redis embedding cache so repeated text isn't re-embedded</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">ChromaDB</span><span class="chip">OpenAI / Ollama</span><span class="chip">Next.js</span></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
+            <img class="on" src="assets/projects/linksnap-dashboard.webp" alt="LinkSnap link list" loading="lazy" />
+            <img src="assets/projects/linksnap-analytics.webp" alt="LinkSnap click statistics" loading="lazy" />
+            <div class="shot-tabs"><button class="on">Links</button><button>Analytics</button></div>
+          </div>
+          <div class="info">
+            <span class="tag">SaaS</span>
+            <h3>LinkSnap: URL shortener</h3>
+            <p>A full URL shortener with accounts, custom short codes, expiry dates and click limits, per-link click analytics and downloadable QR codes.</p>
+            <ul>
+              <li>JWT auth with argon2 password hashing</li>
+              <li>Click tracking with a 7-day activity chart</li>
+              <li>Free-tier deployment: Vercel, Render and TiDB Cloud</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">MySQL</span><span class="chip">React</span><span class="chip">Vite</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/linksnap" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
+            <img class="on" src="assets/projects/shorty-dashboard.webp" alt="Shorty dashboard" loading="lazy" />
+            <img src="assets/projects/shorty-analytics.webp" alt="Shorty per-link analytics" loading="lazy" />
+            <div class="shot-tabs"><button class="on">Dashboard</button><button>Analytics</button></div>
+          </div>
+          <div class="info">
+            <span class="tag">caching · analytics</span>
+            <h3>Shorty: link analytics</h3>
+            <p>A URL shortener built around a fast redirect path: Redis cache-aside in front of MySQL, with click analytics broken down by day, device and referrer.</p>
+            <ul>
+              <li>Redis-cached redirects with invalidation on update</li>
+              <li>Clicks over time, device breakdown and top referrers</li>
+              <li>34 tests covering validation, caching and expiry</li>
+            </ul>
+            <div class="chips"><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">Vue 3</span><span class="chip">Chart.js</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/shorty" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
+            <div class="code-shot">
+<span class="c"># 1. log in → access + refresh token</span>
+<span class="k">POST</span> <span class="a">/api/v1/auth/login</span>     <span class="n">200</span>
+<span class="c"># 2. rotate: R1 is used up, R2 issued</span>
+<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R1 <span class="n">200</span>
+<span class="c"># 3. stolen R1 replayed...</span>
+<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R1 <span class="n">401</span>
+<span class="c">#    → whole session revoked, R2 dead too</span>
+<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R2 <span class="n">401</span>
+
+<span class="c"># access token: 15 min, type="access"</span>
+<span class="c"># refresh token: 7 days, single use</span>
+<span class="c"># bcrypt cost 12 · timing-safe login</span>
+<span class="c"># 5 logins/min per IP (slowapi)</span>
+            </div>
+          </div>
+          <div class="info">
+            <span class="tag">security · backend</span>
+            <h3>Prime Auth: authentication service</h3>
+            <p>A standalone async auth service: registration, login, JWT access and refresh tokens, logout and rate limiting, ready to sit behind any web or mobile app.</p>
+            <ul>
+              <li>Refresh-token rotation with reuse detection</li>
+              <li>Timing-safe login that doesn't leak which emails exist</li>
+              <li>Alembic migrations and a drift check in CI</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy async</span><span class="chip">JWT</span><span class="chip">Alembic</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/prime-auth" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="eyebrow">05 · contact</span>
+      <h2>Let's build something</h2>
+      <p class="lead">Have a role, a project or a question about something I've built? Email is the fastest way to reach me, and I usually reply within a day.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:pruthvi3.pk@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          pruthvi3.pk@gmail.com
+        </a>
+        <button class="btn copy-btn" type="button" data-email="pruthvi3.pk@gmail.com">Copy email</button>
+        <a class="btn" href="https://linkedin.com/in/pruthviraj-kakade-631742169" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Pruthviraj Kakade · Pune, India</span>
+      <span class="foot-links"><a href="https://github.com/pruthvi300" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/pruthviraj-kakade-631742169" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:pruthvi3.pk@gmail.com">Email</a><a href="#top">Back to top ↑</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Screenshot tabs on each project card.
+    document.querySelectorAll('.shots').forEach((box) => {
+      const imgs = box.querySelectorAll('img');
+      const tabs = box.querySelectorAll('.shot-tabs button');
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+        imgs.forEach((img, j) => img.classList.toggle('on', i === j));
+        tabs.forEach((t, j) => t.classList.toggle('on', i === j));
+      }));
+    });
+
+    // Copy email for people whose browser has no mail app configured.
+    document.querySelectorAll('.copy-btn').forEach((btn) => btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(btn.dataset.email); btn.textContent = 'Copied ✓'; btn.classList.add('done'); }
+      catch { btn.textContent = btn.dataset.email; }
+    }));
+
+    // Fade sections in as they scroll into view.
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
