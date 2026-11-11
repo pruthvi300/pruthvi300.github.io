@@ -363,6 +363,26 @@
 
         <article class="project reveal">
           <div class="shots">
+            <img class="on" src="assets/projects/primeauth-tokens.webp" alt="A real run: a replayed refresh token revokes the whole session, and repeated bad logins are rate-limited" loading="lazy" />
+            <img src="assets/projects/primeauth-docs.webp" alt="Prime Auth interactive API docs" loading="lazy" />
+            <div class="shot-tabs"><button class="on">Token theft, caught</button><button>API docs</button></div>
+          </div>
+          <div class="info">
+            <span class="tag">security · backend</span>
+            <h3>Prime Auth: authentication service</h3>
+            <p>A standalone async auth service: registration, login, JWT access and refresh tokens, logout and rate limiting, ready to sit behind any web or mobile app. The screenshot is a real run: a stolen refresh token is replayed and the whole session is revoked.</p>
+            <ul>
+              <li>Refresh-token rotation with reuse detection</li>
+              <li>Timing-safe login that doesn't leak which emails exist</li>
+              <li>Alembic migrations and a drift check in CI</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy async</span><span class="chip">JWT</span><span class="chip">Alembic</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/prime-auth" target="_blank" rel="noopener">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
             <img class="on" src="assets/projects/teamsync-board.webp" alt="TeamSync Kanban board" loading="lazy" />
             <img src="assets/projects/teamsync-task.webp" alt="TeamSync task details with comments" loading="lazy" />
             <div class="shot-tabs"><button class="on">Board</button><button>Task details</button></div>
@@ -451,38 +471,6 @@ data: digital goods <span class="a">[2]</span>.
             </ul>
             <div class="chips"><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Redis</span><span class="chip">Vue 3</span><span class="chip">Chart.js</span></div>
             <div class="links"><a class="btn" href="https://github.com/pruthvi300/shorty" target="_blank" rel="noopener">View code →</a></div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="shots">
-            <div class="code-shot">
-<span class="c"># 1. log in → access + refresh token</span>
-<span class="k">POST</span> <span class="a">/api/v1/auth/login</span>     <span class="n">200</span>
-<span class="c"># 2. rotate: R1 is used up, R2 issued</span>
-<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R1 <span class="n">200</span>
-<span class="c"># 3. stolen R1 replayed...</span>
-<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R1 <span class="n">401</span>
-<span class="c">#    → whole session revoked, R2 dead too</span>
-<span class="k">POST</span> <span class="a">/api/v1/auth/refresh</span> R2 <span class="n">401</span>
-
-<span class="c"># access token: 15 min, type="access"</span>
-<span class="c"># refresh token: 7 days, single use</span>
-<span class="c"># bcrypt cost 12 · timing-safe login</span>
-<span class="c"># 5 logins/min per IP (slowapi)</span>
-            </div>
-          </div>
-          <div class="info">
-            <span class="tag">security · backend</span>
-            <h3>Prime Auth: authentication service</h3>
-            <p>A standalone async auth service: registration, login, JWT access and refresh tokens, logout and rate limiting, ready to sit behind any web or mobile app.</p>
-            <ul>
-              <li>Refresh-token rotation with reuse detection</li>
-              <li>Timing-safe login that doesn't leak which emails exist</li>
-              <li>Alembic migrations and a drift check in CI</li>
-            </ul>
-            <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy async</span><span class="chip">JWT</span><span class="chip">Alembic</span></div>
-            <div class="links"><a class="btn" href="https://github.com/pruthvi300/prime-auth" target="_blank" rel="noopener">View code →</a></div>
           </div>
         </article>
 
