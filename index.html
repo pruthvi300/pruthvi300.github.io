@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pruthviraj Kakade — Software Engineer</title>
-  <meta name="description" content="Pruthviraj Kakade is a software engineer in Pune, India with 4.5+ years building scalable full stack applications with Python (FastAPI, Flask), Vue.js and React." />
+  <meta name="description" content="Pruthviraj Kakade is a software engineer in Pune, India with 4.5+ years building Python backends (FastAPI, Flask), Vue.js and React frontends, and production LLM and RAG features." />
   <meta property="og:title" content="Pruthviraj Kakade — Software Engineer" />
-  <meta property="og:description" content="Full stack engineer with a strong Python backend focus: async APIs, background jobs, caching, data-heavy UIs." />
+  <meta property="og:description" content="Software engineer: Python backend and full stack, with production LLM and RAG integrations." />
   <meta property="og:image" content="https://pruthvi300.github.io/assets/og.png" />
   <meta name="theme-color" content="#0b1220" />
   <link rel="canonical" href="https://pruthvi300.github.io/" />
@@ -235,7 +235,7 @@
       <div>
         <span class="status"><i></i> Software Developer at Apptware · Pune, India</span>
         <h1>Hi, I'm <span class="grad">Pruthviraj Kakade</span></h1>
-        <p class="role">Software Engineer · Full Stack · Python</p>
+        <p class="role">Software Engineer · Python Backend &amp; Full Stack · LLM &amp; RAG</p>
         <p class="lead">I build scalable web applications with a strong backend focus in <strong>Python (FastAPI, Flask)</strong> and frontends in <strong>Vue.js and React</strong>. I like making slow things fast, and making systems that keep working when parts of them fail.</p>
         <div class="btns">
           <a class="btn primary" href="#projects">View my work</a>
@@ -375,6 +375,40 @@
 
         <article class="project reveal">
           <div class="shots">
+            <div class="code-shot">
+<span class="c"># Ask a question about your documents</span>
+<span class="k">POST</span> <span class="a">/api/chat/stream</span>
+{ <span class="s">"question"</span>: <span class="s">"What is the refund window?"</span> }
+
+<span class="c"># Streamed answer with citations</span>
+data: Refunds are accepted within <span class="n">30</span> days
+data: of delivery <span class="a">[1]</span>, or <span class="n">14</span> days for
+data: digital goods <span class="a">[2]</span>.
+
+<span class="a">[1]</span> policy.pdf · page <span class="n">4</span>
+<span class="a">[2]</span> faq.md
+
+<span class="c"># retrieve → augment → generate</span>
+<span class="k">chunks</span> = vector_store.search(q, k=<span class="n">5</span>)
+<span class="k">answer</span> = llm.stream(prompt(chunks, q))
+            </div>
+          </div>
+          <div class="info">
+            <span class="tag">AI · RAG</span>
+            <h3>DocuMind: chat with your documents</h3>
+            <p>Upload PDFs, Word files or notes and ask questions in plain English. Answers stream in token by token, with numbered citations back to the source pages.</p>
+            <ul>
+              <li>RAG pipeline with LangChain and ChromaDB</li>
+              <li>Runs on OpenAI or fully local with Ollama, switchable by config</li>
+              <li>Redis embedding cache so repeated text isn't re-embedded</li>
+            </ul>
+            <div class="chips"><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">ChromaDB</span><span class="chip">OpenAI / Ollama</span><span class="chip">Next.js</span></div>
+            <div class="links"><a class="btn" href="https://github.com/pruthvi300/documind" target="_blank" rel="noopener noreferrer">View code →</a></div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="shots">
             <img class="on" src="assets/projects/primeauth-tokens.webp" alt="A real run: a replayed refresh token revokes the whole session, and repeated bad logins are rate-limited" loading="lazy" />
             <img src="assets/projects/primeauth-docs.webp" alt="Prime Auth interactive API docs" loading="lazy" />
             <div class="shot-tabs"><button class="on">Token theft, caught</button><button>API docs</button></div>
@@ -410,39 +444,6 @@
             </ul>
             <div class="chips"><span class="chip">React 18</span><span class="chip">Zustand</span><span class="chip">FastAPI</span><span class="chip">Socket.IO</span><span class="chip">PostgreSQL</span></div>
             <div class="links"><a class="btn" href="https://github.com/pruthvi300/teamsync" target="_blank" rel="noopener noreferrer">View code →</a></div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="shots">
-            <div class="code-shot">
-<span class="c"># Ask a question about your documents</span>
-<span class="k">POST</span> <span class="a">/api/chat/stream</span>
-{ <span class="s">"question"</span>: <span class="s">"What is the refund window?"</span> }
-
-<span class="c"># Streamed answer with citations</span>
-data: Refunds are accepted within <span class="n">30</span> days
-data: of delivery <span class="a">[1]</span>, or <span class="n">14</span> days for
-data: digital goods <span class="a">[2]</span>.
-
-<span class="a">[1]</span> policy.pdf · page <span class="n">4</span>
-<span class="a">[2]</span> faq.md
-
-<span class="c"># retrieve → augment → generate</span>
-<span class="k">chunks</span> = vector_store.search(q, k=<span class="n">5</span>)
-<span class="k">answer</span> = llm.stream(prompt(chunks, q))
-            </div>
-          </div>
-          <div class="info">
-            <span class="tag">AI · RAG</span>
-            <h3>DocuMind: chat with your documents</h3>
-            <p>Upload PDFs, Word files or notes and ask questions in plain English. Answers stream in token by token, with numbered citations back to the source pages.</p>
-            <ul>
-              <li>RAG pipeline with LangChain and ChromaDB</li>
-              <li>Runs on OpenAI or fully local with Ollama, switchable by config</li>
-              <li>Redis embedding cache so repeated text isn't re-embedded</li>
-            </ul>
-            <div class="chips"><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">ChromaDB</span><span class="chip">OpenAI / Ollama</span><span class="chip">Next.js</span></div>
           </div>
         </article>
 
